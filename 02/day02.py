@@ -13,10 +13,9 @@ class Checksum:
     def divisible(num1, num2):
         big = max(num1, num2)
         small = min(num1, num2)
-        div = big/small
-        divint = big//small
-        if div == divint:
-            return True, div
+        rem = big % small
+        if rem == 0:
+            return True, big // small
         return False, 0
 
     @staticmethod
