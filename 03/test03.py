@@ -2,6 +2,7 @@
 
 import unittest
 from day03 import Manhattan
+from day03 import Grid
 
 class Test03(unittest.TestCase):
     def test_coordinate(self):
@@ -24,6 +25,24 @@ class Test03(unittest.TestCase):
         self.assertEqual(3, Manhattan.distance1(12))
         self.assertEqual(2, Manhattan.distance1(23))
         self.assertEqual(31, Manhattan.distance1(1024))
+
+
+    def test_grid_init(self):
+        testgrid = Grid(25)
+        self.assertEqual(51*51, len(testgrid.matrix)*len(testgrid.matrix[0]))
+
+    def test_grid_setget(self):
+        testgrid = Grid(25)
+        testgrid.Set(5,-5,5)
+        testgrid.Set(25,25,25)
+        testgrid.Set(-25,-25,-25)
+        self.assertEqual(5, testgrid.Get(5,-5))
+        self.assertEqual(25, testgrid.Get(25,25))
+        self.assertEqual(-25, testgrid.Get(-25,-25))
+        self.assertRaises(IndexError, testgrid.Get, 26, -26)
+        self.assertRaises(IndexError, testgrid.Get, -26, 26)
+        self.assertRaises(IndexError, testgrid.Set, 26, -26, 1)
+        self.assertRaises(IndexError, testgrid.Set, -26, 26, 2)
 
 #    def test_distance2(self):
 #        self.fail("Not implemented")

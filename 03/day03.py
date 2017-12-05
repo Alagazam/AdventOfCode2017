@@ -1,6 +1,17 @@
 # pylint: disable=missing-docstring
 
 import math
+class Grid:
+    def __init__(self, size):
+        self.origo = size
+        self.matrix = [[0 for x in range(self.origo*2+1)] for y in range(self.origo*2+1)]   # big ass matrix
+
+    def Get(self, x, y):
+        return self.matrix[x+self.origo][y+self.origo]
+    def Set(self, x, y, value):
+        self.matrix[x+self.origo][y+self.origo] = value
+
+
 
 class Manhattan:
     @staticmethod
@@ -30,11 +41,13 @@ class Manhattan:
         x, y = Manhattan.coordinate(data)
         return abs(x) + abs(y)
 
+
+
     @staticmethod
-    def distance2(data):
+    def first_larger(data):
         return 0
 
 
 if __name__ == '__main__':
     print("distance1: " + str(Manhattan.distance1(368078)))
-    print("distance2: " + str(Manhattan.distance2(368078)))
+    print("distance2: " + str(Manhattan.first_larger(368078)))
