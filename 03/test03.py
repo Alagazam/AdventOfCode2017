@@ -26,6 +26,17 @@ class Test03(unittest.TestCase):
         self.assertEqual(2, Manhattan.distance1(23))
         self.assertEqual(31, Manhattan.distance1(1024))
 
+    def test_distance2(self):
+        self.assertEqual(0, Manhattan.distance2(1))
+        self.assertEqual(3, Manhattan.distance2(12))
+        self.assertEqual(2, Manhattan.distance2(23))
+        self.assertEqual(31, Manhattan.distance2(1024))
+
+    def test_first_larger(self):
+        self.assertEqual(1, Manhattan.first_larger(1))
+        self.assertEqual(23, Manhattan.first_larger(12))
+        self.assertEqual(122, Manhattan.first_larger(100))
+        self.assertEqual(747, Manhattan.first_larger(700))
 
     def test_grid_init(self):
         testgrid = Grid(25)
@@ -33,16 +44,16 @@ class Test03(unittest.TestCase):
 
     def test_grid_setget(self):
         testgrid = Grid(25)
-        testgrid.Set(5,-5,5)
-        testgrid.Set(25,25,25)
-        testgrid.Set(-25,-25,-25)
-        self.assertEqual(5, testgrid.Get(5,-5))
-        self.assertEqual(25, testgrid.Get(25,25))
-        self.assertEqual(-25, testgrid.Get(-25,-25))
-        self.assertRaises(IndexError, testgrid.Get, 26, -26)
-        self.assertRaises(IndexError, testgrid.Get, -26, 26)
-        self.assertRaises(IndexError, testgrid.Set, 26, -26, 1)
-        self.assertRaises(IndexError, testgrid.Set, -26, 26, 2)
+        testgrid.set(5, -5, 5)
+        testgrid.set(25, 25, 25)
+        testgrid.set(-25, -25, -25)
+        self.assertEqual(5, testgrid.get(5, -5))
+        self.assertEqual(25, testgrid.get(25, 25))
+        self.assertEqual(-25, testgrid.get(-25, -25))
+        self.assertRaises(IndexError, testgrid.get, 26, -26)
+        self.assertRaises(IndexError, testgrid.get, -26, 26)
+        self.assertRaises(IndexError, testgrid.set, 26, -26, 1)
+        self.assertRaises(IndexError, testgrid.set, -26, 26, 2)
 
 #    def test_distance2(self):
 #        self.fail("Not implemented")
