@@ -33,7 +33,8 @@ class Realloc:
             if new_distr in distributions:
                 break
             distributions.append(new_distr)
-        return counter
+        loop = len(distributions) - distributions.index(new_distr)
+        return counter, loop
 
 if __name__ == '__main__':
     FILE = open("input.txt", "r")

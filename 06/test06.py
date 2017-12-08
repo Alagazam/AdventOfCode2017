@@ -20,7 +20,7 @@ class Test05(unittest.TestCase):
 
     def test_find_loop(self):
         testdata = [0, 2, 7, 0]
-        self.assertEqual(5, Realloc.find_loop(testdata))
+        self.assertEqual((5, 4), Realloc.find_loop(testdata))
 
 if __name__ == '__main__':
     unittest.main()
