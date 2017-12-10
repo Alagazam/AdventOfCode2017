@@ -3,7 +3,7 @@
 import unittest
 from day06 import Realloc
 
-class Test05(unittest.TestCase):
+class Test06(unittest.TestCase):
 
     def test_maxindex(self):
         self.assertEqual(2, Realloc.maxindex([0, 2, 7, 0]))
